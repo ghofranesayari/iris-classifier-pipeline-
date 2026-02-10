@@ -1,4 +1,9 @@
-scikit-learn
-joblib
 fastapi
 uvicorn
+scikit-learn
+pandas
+joblib
+numpy
+pytest
+requests
+streamlit  
