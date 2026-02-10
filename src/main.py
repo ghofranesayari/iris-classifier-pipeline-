@@ -29,4 +29,4 @@ def predict(data: IrisInput):
 
 @app.get("/")
 def read_root():
-    return {"message": "Iris Model API is Live! 🌸"}
+    return {"message": "Iris Model aaaa API is Live! 🌸"}
