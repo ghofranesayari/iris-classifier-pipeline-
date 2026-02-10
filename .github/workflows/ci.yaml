@@ -1,0 +1,36 @@
+name: iris-classifier-pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Get the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Set up Python
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+
+    # 3. Install Dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # 4. Train the Model (Generates src/model.pkl)
+    - name: Train Model
+      run: python src/train.py
+
+    # 5. Run the Test (Verifies the model works)
+    - name: Test Model
+      run: python src/test_model.py
